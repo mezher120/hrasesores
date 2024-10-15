@@ -5,6 +5,7 @@ const cors = require('cors')  // to receive data from different origins
 const dotenv = require('dotenv')
 const connectDB = require('./db')
 const userRoute = require('./routes/userRoutes.js')
+const blogRoute = require('./routes/blogRoutes.js');
 
 // create server
 const app = express();
@@ -14,6 +15,7 @@ dotenv.config();
 app.use(bodyParser.json()) // to use json to receive and response
 app.use(cors()); // to receive data from different origins
 app.use('/user', userRoute)
+app.use('/blog', blogRoute);
 
 
 app.post('/send', (req, res) => {
